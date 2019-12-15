@@ -109,7 +109,7 @@
         },
         methods:{
             login(){
-                leyou.http.post("/user/login",leyou.stringify(this.form))
+                leyou.http.post("/auth/accredit",leyou.stringify(this.form))
                     .then(resp => {
                         if(resp.status === 200){
                             const url = leyou.getUrlParam("returnUrl");
@@ -118,6 +118,9 @@
                     })
                     .catch(() => this.msg = '用户名或密码错误')
             }
+        },
+        components:{
+            lyTop: () => import("./js/pages/top.js")
         }
     });
 </script>
